@@ -1,10 +1,15 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"packageRules": [
-      {
-        "matchDatasources": ["docker"],
-        "versioning": "redhat"
-      }
+        {
+            "matchDatasources": ["docker"],
+            "versioning": "redhat"
+        }
     ],
+    "postUpgradeTasks": {
+        "commands": ["go generate ./...", "go mod vendor"],
+        "fileFilters": ["**/**"],
+        "executionMode": "branch"
+    },
 	"reviewers": ["basbeu", "vloup"]
 }
