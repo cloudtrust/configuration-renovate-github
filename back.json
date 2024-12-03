@@ -6,10 +6,6 @@
             "versioning": "redhat"
         }
     ],
-    "postUpgradeTasks": {
-        "commands": ["go generate ./...", "go mod vendor"],
-        "fileFilters": ["**/**"],
-        "executionMode": "branch"
-    },
+    "postUpdateOptions": ["gomodTidyE"],
 	"reviewers": ["basbeu", "vloup"]
 }
