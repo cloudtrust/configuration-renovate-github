@@ -1,11 +1,18 @@
 {
-	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"packageRules": [
-        {
-            "matchDatasources": ["docker"],
-            "versioning": "redhat"
-        }
-    ],
-    "postUpdateOptions": ["gomodTidyE"],
-	"reviewers": ["basbeu", "vloup"]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    ":prHourlyLimitNone",
+    ":prConcurrentLimitNone",
+    ":semanticCommits",
+    ":enablePreCommit"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "redhat"
+    }
+  ],
+  "postUpdateOptions": ["gomodTidyE"],
+  "reviewers": ["basbeu", "vloup"]
 }
